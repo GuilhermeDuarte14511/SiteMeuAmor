@@ -333,10 +333,8 @@ body {
     transition: all 0.3s;
   }
   
-  #btn-top { bottom: 150px; }
-  #btn-music { bottom: 100px; }
-  #btn-love-message { bottom: 50px; }
-  #btn-theme-toggle { bottom: 200px; }
+  #btn-top { bottom: 10px; }
+  #btn-love-message { bottom: 70px; }
   
   #btn-top:hover,
   #btn-music:hover,
