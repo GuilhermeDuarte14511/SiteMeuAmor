@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Guilherme & Caroline 💖</title>
+
+  <!-- Bootstrap, FontAwesome, Animate.css, AOS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+  <link href="style.css" rel="stylesheet" />
+
+  <!-- TypeIt para digitação automática -->
+  <script src="https://cdn.jsdelivr.net/npm/typeit@8.7.1/dist/index.umd.js"></script>
+
+  <!-- Confetti -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+</head>
+<body>
+  <div class="hearts-container"></div>
+
+  <header class="header-romantic compact text-white text-center d-flex align-items-center justify-content-center">
+    <div class="container" data-aos="zoom-in">
+      <h1 class="display-5 fw-bold mb-2 animate__animated animate__fadeInDown">Guilherme & Caroline 💖</h1>
+      <p id="typed-header" class="fs-5 animate__animated animate__fadeInUp"></p>
+      <p class="fs-6 mt-2">Estamos juntos há <span id="dias-juntos">...</span> dias 💞</p>
+    </div>
+    <div class="floating-hearts"></div>
+  </header>
+
+
+  <section class="countdown-section text-white py-5 bg-dark">
+    <div class="container text-center">
+      <h2 class="mb-3">Faltam</h2>
+      <div id="countdown" class="fs-2 fw-bold d-flex justify-content-center flex-wrap gap-3">
+        <div><span id="dias">0</span> dias</div>
+        <div><span id="horas">0</span>h</div>
+        <div><span id="minutos">0</span>min</div>
+        <div><span id="segundos">0</span>s</div>
+      </div>
+      <p class="mt-3">para o nosso casamento 💍</p>
+
+    <!-- Barra de progresso até o casamento -->
+    <div class="progress mt-4" style="height: 20px;">
+        <div class="progress-bar bg-rose-gold" id="barra-progresso" role="progressbar" style="width: 0%">
+        <span id="progresso-texto" class="fw-bold"></span>
+        </div>
+    </div>
+    </div>
+  </section>
+
+    <!-- Frases com digitação automática -->
+    <section class="text-center py-4 bg-black text-white">
+        <h2 class="mb-3">Palavras do coração</h2>
+        <p id="typeit" class="fs-4"></p>
+    </section>
+
+  <!-- Linha do tempo -->
+  <section class="timeline-section py-5">
+    <div class="container">
+      <h2 class="text-center mb-5 text-white">Nossa Linha do Tempo</h2>
+      <div class="timeline d-flex justify-content-between position-relative">
+        <div class="event" data-aos="zoom-in">
+          <div class="circle bg-danger"></div>
+          <p class="year">2021</p>
+          <p class="desc">Nos conhecemos<br><small>21 de março</small></p>
+        </div>
+        <div class="event" data-aos="zoom-in">
+          <div class="circle bg-success"></div>
+          <p class="year">2021</p>
+          <p class="desc">Começamos a namorar<br><small>08 de junho</small></p>
+        </div>
+        <div class="event" data-aos="zoom-in">
+          <div class="circle bg-warning"></div>
+          <p class="year">2023</p>
+          <p class="desc">Noivado<br><small>10 de outubro</small></p>
+        </div>
+        <div class="event" data-aos="zoom-in">
+          <div class="circle bg-primary"></div>
+          <p class="year">2026</p>
+          <p class="desc">Nosso Casamento<br><small>10 de janeiro</small></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="declarations-section text-center text-white py-5 bg-black">
+    <div class="container">
+      <p id="rotating-phrase" class="text-white fs-4 mb-5 fadein"></p>
+      <h2 class="mb-4">Promessas de Amor</h2>
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="promise-card">
+            <div class="card-inner">
+              <div class="card-front">
+                <h5>No nosso casamento...</h5>
+                <small class="text-muted d-block mt-2">Toque para virar 💖</small>
+              </div>
+              <div class="card-back">
+                <p>Prometo ser teu abrigo, teu porto seguro, tua paz. ❤️</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="promise-card">
+            <div class="card-inner">
+              <div class="card-front">
+                <h5>Juro solenemente...</h5>
+                <small class="text-muted d-block mt-2">Toque para virar 💖</small>
+              </div>
+              <div class="card-back">
+                <p>Estar ao seu lado em cada riso, cada dor e cada conquista. 💍</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="promise-card">
+            <div class="card-inner">
+              <div class="card-front">
+                <h5>De coração aberto...</h5>
+                <small class="text-muted d-block mt-2">Toque para virar 💖</small>
+              </div>
+              <div class="card-back">
+                <p>Entrego minha alma, minha vida, minha esperança de futuro com você. ✨</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Frases extras -->
+        <div class="col-md-4">
+          <div class="promise-card">
+            <div class="card-inner">
+              <div class="card-front">
+                <h5>Nos dias bons...</h5>
+                <small class="text-muted d-block mt-2">Toque para virar 💖</small>
+              </div>
+              <div class="card-back">
+                <p>Quero sorrir ao seu lado. E nos ruins, quero te abraçar ainda mais forte. 💫</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="promise-card">
+            <div class="card-inner">
+              <div class="card-front">
+                <h5>Meu amor por você...</h5>
+                <small class="text-muted d-block mt-2">Toque para virar 💖</small>
+              </div>
+              <div class="card-back">
+                <p>É a certeza que quero envelhecer contigo, lado a lado. 👴👰</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="promise-card">
+            <div class="card-inner">
+              <div class="card-front">
+                <h5>Prometo todos os dias...</h5>
+                <small class="text-muted d-block mt-2">Toque para virar 💖</small>
+              </div>
+              <div class="card-back">
+                <p>Te lembrar do quanto é amada, especial e única pra mim. 🌹</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="text-center text-white py-4 bg-dark">
+    <p>Com todo amor, Guilherme 💌</p>
+  </footer>
+
+  
+   <!-- Botões flutuantes -->
+   <button id="btn-top" title="Voltar ao topo"><i class="fas fa-arrow-up"></i></button>
+   <button id="btn-music" title="Música ambiente 🎵"><i class="fas fa-music"></i></button>
+   <button id="btn-love-message" title="Mensagem surpresa 💌"><i class="fas fa-envelope-open-text"></i></button>
+ 
+   <!-- Modal com declaração e confete -->
+   <div class="modal fade" id="loveModal" tabindex="-1" aria-labelledby="loveModalLabel" aria-hidden="true">
+     <div class="modal-dialog modal-dialog-centered">
+       <div class="modal-content bg-dark text-white">
+         <div class="modal-header">
+           <h5 class="modal-title" id="loveModalLabel">Uma carta para você 💌</h5>
+           <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+         </div>
+         <div class="modal-body">
+           <p>Amor, você é a melhor parte dos meus dias. Obrigado por existir, por sorrir, por me amar do jeitinho que sou. Prometo estar ao seu lado em cada passo da nossa caminhada, com o coração cheio de amor eterno. 💖</p>
+         </div>
+         <div class="modal-footer">
+           <button type="button" class="btn btn-light" data-bs-dismiss="modal">Fechar</button>
+         </div>
+       </div>
+     </div>
+   </div>
+ 
+   <!-- YouTube player invisível -->
+   <div id="yt-player" style="display:none;">
+     <iframe id="youtube-audio" width="0" height="0"
+       src="https://www.youtube.com/embed/3n3itDDgmQQ?autoplay=1&loop=1&playlist=3n3itDDgmQQ&mute=1&enablejsapi=1"
+       frameborder="0" allow="autoplay" allowfullscreen></iframe>
+   </div>
+ 
+   <!-- Scripts -->
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+   <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+   <script src="https://www.youtube.com/iframe_api"></script>
+   <script src="https://cdn.jsdelivr.net/npm/typeit@8.7.1/dist/index.umd.js"></script>
+   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+   <script src="site.js"></script>
+ </body>
+ </html>

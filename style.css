@@ -1,0 +1,407 @@
+/* Tema geral */
+body {
+    background-color: #121212;
+    color: #f8f9fa;
+    font-family: 'Segoe UI', sans-serif;
+    overflow-x: hidden;
+    position: relative;
+    transition: background 0.3s, color 0.3s;
+  }
+
+/* Rose Gold animada com preenchimento suave */
+.bg-rose-gold {
+    background: linear-gradient(90deg, #b76e79, #ecb2b2, #f7caca);
+    background-size: 200% 100%;
+    animation: progressBarGlow 4s ease-in-out infinite;
+    color: #fff;
+    font-weight: bold;
+    transition: width 1.5s ease-in-out;
+  }
+  
+  @keyframes progressBarGlow {
+    0%   { background-position: 0% 50%; }
+    50%  { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+
+  h1, h2, .display-5 {
+    font-family: 'Great Vibes', cursive;
+  }
+  
+  body.light-theme {
+    background-color: #fffafc;
+    color: #333;
+  }
+  
+  /* Header */
+  header {
+    background: linear-gradient(to right, #ffb6c1, #ff69b4);
+    box-shadow: 0 4px 8px rgba(255, 105, 180, 0.5);
+  }
+
+  @keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+  
+  .header-romantic {
+    height: 100vh;
+    background: linear-gradient(-45deg, #ff9a9e, #fad0c4, #fbc2eb, #a6c1ee);
+    background-size: 400% 400%;
+    animation: gradientShift 15s ease infinite;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .floating-hearts {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    overflow: hidden;
+    pointer-events: none;
+  }
+  
+  .floating-hearts::after {
+    content: "💖 💕 💘 💝 ❤️";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 2rem;
+    animation: heartsUp 8s linear infinite;
+  }
+  
+  @keyframes heartsUp {
+    0% {
+      top: 100%;
+      opacity: 0;
+    }
+    20% {
+      opacity: 1;
+    }
+    100% {
+      top: -10%;
+      opacity: 0;
+    }
+  }
+  
+  
+  .header-romantic.compact {
+    height: 25vh;
+    padding: 2rem 0;
+  }
+  
+  .header-romantic::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.3);
+    z-index: 0;
+  }
+  
+  .header-romantic .container {
+    position: relative;
+    z-index: 1;
+  }
+  
+  body.light-theme header {
+    background: linear-gradient(to right, #ffe3ec, #ffcfe3);
+    box-shadow: 0 4px 8px rgba(255, 192, 203, 0.4);
+  }
+  
+  /* Corações animados */
+  .hearts-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+  }
+  
+  .heart {
+    color: pink;
+    font-size: 1.5rem;
+    position: absolute;
+    animation: float 6s linear infinite;
+  }
+  
+  @keyframes float {
+    0% { transform: translateY(100vh) scale(1); opacity: 1; }
+    100% { transform: translateY(-10vh) scale(1.5); opacity: 0; }
+  }
+  
+  /* Contagem Regressiva */
+  .countdown-section {
+    background-color: #1e1e1e;
+    padding: 2rem 0;
+  }
+  
+  #countdown div {
+    background: #ff69b4;
+    padding: 1rem 1.5rem;
+    border-radius: 1rem;
+    min-width: 100px;
+    color: white;
+  }
+  
+  body.light-theme .countdown-section {
+    background-color: #ffeef5;
+  }
+  
+  body.light-theme #countdown div {
+    background: #f88fb0;
+    color: #fff;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  }
+  
+  /* Dias Juntos */
+  .since-met-section {
+    font-size: 1.2rem;
+  }
+  
+  /* Frases rotativas */
+  .phrases-section h3 {
+    font-size: 1.5rem;
+    animation: fadein 2s ease-in-out;
+  }
+  
+  @keyframes fadein {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  
+  /* Linha do Tempo */
+  .timeline-section {
+    background: #181818;
+    padding: 2rem 0;
+  }
+  
+  body.light-theme .timeline-section {
+    background: #fff8fb;
+  }
+  
+  .timeline {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    padding: 2rem 0;
+    border-top: 3px solid #ff69b4;
+  }
+  
+  .timeline::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: #ff69b4;
+    z-index: 1;
+  }
+  
+  .event {
+    position: relative;
+    text-align: center;
+    width: 24%;
+    z-index: 2;
+  }
+  
+  .circle {
+    width: 40px;
+    height: 40px;
+    margin: 0 auto 0.5rem;
+    border-radius: 50%;
+    background: pink;
+    border: 4px solid white;
+    z-index: 3;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  }
+  
+  .event .year {
+    font-weight: bold;
+    margin-bottom: 0.3rem;
+  }
+  
+  .event .desc {
+    font-size: 0.95rem;
+  }
+  
+  body.light-theme .timeline::before {
+    background: #f88fb0;
+  }
+  
+  body.light-theme .circle {
+    border-color: #fff;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  }
+  
+  body.light-theme .event .year,
+  body.light-theme .event .desc {
+    color: #333;
+  }
+  
+  /* Cartões de Promessa */
+  .promise-card {
+    perspective: 1000px;
+    height: 220px;
+  }
+  
+  .card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+  }
+  
+  .promise-card:hover .card-inner,
+  .promise-card .card-inner.flipped {
+    transform: rotateY(180deg);
+  }
+  
+  .card-front,
+  .card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 12px;
+    padding: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 8px 20px rgba(255, 105, 180, 0.2);
+  }
+  
+  .card-front {
+    background: #2c2c2c;
+    color: #fff;
+  }
+  
+  .card-back {
+    background: #ff69b4;
+    color: #fff;
+    transform: rotateY(180deg);
+  }
+  
+  body.light-theme .card-front {
+    background: #fff;
+    color: #000;
+    border: 1px solid #f3c1d3;
+  }
+  
+  body.light-theme .card-back {
+    background: #ffe3ec;
+    color: #000;
+    border: 1px solid #f3c1d3;
+  }
+  
+  /* Footer */
+  footer {
+    background-color: #1e1e1e;
+    color: white;
+  }
+  
+  body.light-theme footer {
+    background-color: #ffeef5;
+    color: #444;
+  }
+  
+  /* Botões flutuantes */
+  #btn-top,
+  #btn-music,
+  #btn-love-message,
+  #btn-theme-toggle {
+    position: fixed;
+    right: 20px;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    border: none;
+    background: #ff69b4;
+    color: white;
+    z-index: 9999;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    transition: all 0.3s;
+  }
+  
+  #btn-top { bottom: 150px; }
+  #btn-music { bottom: 100px; }
+  #btn-love-message { bottom: 50px; }
+  #btn-theme-toggle { bottom: 200px; }
+  
+  #btn-top:hover,
+  #btn-music:hover,
+  #btn-love-message:hover,
+  #btn-theme-toggle:hover {
+    background: #e055a1;
+  }
+  
+  body.light-theme #btn-top,
+  body.light-theme #btn-music,
+  body.light-theme #btn-love-message,
+  body.light-theme #btn-theme-toggle {
+    background-color: #f88fb0;
+    color: white;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  body.light-theme #btn-top:hover,
+  body.light-theme #btn-music:hover,
+  body.light-theme #btn-love-message:hover,
+  body.light-theme #btn-theme-toggle:hover {
+    background-color: #e8739f;
+  }
+  
+  /* Modal */
+  .modal-content {
+    background: #2c2c2c;
+    color: #fff;
+    border-radius: 1rem;
+  }
+  
+  body.light-theme .modal-content {
+    background-color: #fffafc;
+    color: #000;
+    border: 1px solid #f3c1d3;
+  }
+  
+  /* Responsivo */
+  @media (max-width: 768px) {
+    .timeline {
+      flex-direction: column;
+      align-items: center;
+      border: none;
+    }
+  
+    .timeline::before {
+      display: none;
+    }
+  
+    .event {
+      width: auto;
+      margin-bottom: 2rem;
+    }
+  
+    .phrases-section h3 {
+      font-size: 1.2rem;
+    }
+  
+    #btn-top,
+    #btn-music,
+    #btn-love-message,
+    #btn-theme-toggle {
+      width: 40px;
+      height: 40px;
+      font-size: 1rem;
+    }
+  }
+  
