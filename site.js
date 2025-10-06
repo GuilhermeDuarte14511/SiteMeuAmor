@@ -1,7 +1,7 @@
 ﻿document.addEventListener("DOMContentLoaded", () => {
   AOS.init({ duration: 900, once: true, easing: "ease-out" });
 
-  const weddingDate = new Date("2026-01-10T16:00:00");
+  const weddingDate = new Date("2026-01-10T18:00:00");
   const dataConhecimento = new Date("2021-03-21T00:00:00");
 
   const countdownRefs = {
@@ -9,30 +9,20 @@
     horas: document.getElementById("horas"),
     minutos: document.getElementById("minutos"),
     segundos: document.getElementById("segundos"),
-    container: document.getElementById("countdown"),
     barra: document.getElementById("barra-progresso"),
     textoBarra: document.getElementById("progresso-texto"),
   };
 
   function updateCountdown() {
-    if (!countdownRefs.container) return;
-
-    const now = new Date().getTime();
+    const now = Date.now();
     const distance = weddingDate.getTime() - now;
 
     if (distance <= 0) {
       ["dias", "horas", "minutos", "segundos"].forEach((key) => {
-        if (countdownRefs[key]) countdownRefs[key].textContent = "0";
+        if (countdownRefs[key]) countdownRefs[key].textContent = "00";
       });
-
-      if (countdownRefs.textoBarra) {
-        countdownRefs.textoBarra.textContent = "É hoje! Bem-vindos ao grande dia";
-      }
-
-      if (countdownRefs.barra) {
-        countdownRefs.barra.style.width = "100%";
-      }
-
+      if (countdownRefs.textoBarra) countdownRefs.textoBarra.textContent = "\u00C9 hoje! Bem-vindos ao grande dia";
+      if (countdownRefs.barra) countdownRefs.barra.style.width = "100%";
       return;
     }
 
@@ -51,7 +41,7 @@
     const progresso = Math.min((passado / total) * 100, 100);
 
     if (countdownRefs.barra) countdownRefs.barra.style.width = `${progresso.toFixed(2)}%`;
-    if (countdownRefs.textoBarra) countdownRefs.textoBarra.textContent = `${progresso.toFixed(0)}% até o grande dia`;
+    if (countdownRefs.textoBarra) countdownRefs.textoBarra.textContent = `${progresso.toFixed(0)}% at\u00E9 o grande dia`;
   }
 
   updateCountdown();
@@ -59,19 +49,19 @@
 
   const heartsContainer = document.querySelector(".hearts-container");
   if (heartsContainer) {
-    const heartColors = ["#ff69b4", "#f7b6d7", "#a6c1ee"];
+    const heartColors = ["#b76e79", "#d89aa2", "#ffffff"];
     const spawnHeart = () => {
       const heart = document.createElement("i");
       heart.className = "fas fa-heart heart";
       heart.style.left = `${Math.random() * 100}vw`;
-      heart.style.opacity = Math.random().toFixed(2);
+      heart.style.opacity = (Math.random() * 0.8 + 0.2).toFixed(2);
       heart.style.color = heartColors[Math.floor(Math.random() * heartColors.length)];
       heart.style.animationDuration = `${Math.random() * 4 + 4}s`;
       heartsContainer.appendChild(heart);
-      setTimeout(() => heart.remove(), 7000);
+      setTimeout(() => heart.remove(), 8000);
     };
 
-    setInterval(spawnHeart, 600);
+    setInterval(spawnHeart, 650);
   }
 
   const diasSpan = document.getElementById("dias-juntos");
@@ -82,71 +72,44 @@
   }
 
   const frasesRotativas = [
-    "Amar é transformar rotina em poesia.",
-    "Você é meu agora, meu depois e todos os meus sonhos.",
+    "Amar \u00E9 transformar rotina em poesia.",
+    "Voc\u00EA \u00E9 meu agora, meu depois e todos os meus sonhos.",
     "Nosso amor floresce em cada detalhe do dia.",
-    "Com você, até o silêncio vira música.",
+    "Com voc\u00EA, at\u00E9 o sil\u00EAncio vira m\u00FAsica.",
     "Prometemos ser abrigo, riso e infinito um do outro.",
   ];
 
   const fraseElement = document.getElementById("rotating-phrase");
-  if (fraseElement) {
-    let fraseAtual = 0;
-    fraseElement.textContent = frasesRotativas[fraseAtual];
+  if (fraseElement && frasesRotativas.length) {
+    let indiceAtual = 0;
+    fraseElement.textContent = frasesRotativas[indiceAtual];
 
     setInterval(() => {
-      fraseAtual = (fraseAtual + 1) % frasesRotativas.length;
+      indiceAtual = (indiceAtual + 1) % frasesRotativas.length;
       fraseElement.classList.remove("fadein");
       void fraseElement.offsetWidth;
-      fraseElement.textContent = frasesRotativas[fraseAtual];
+      fraseElement.textContent = frasesRotativas[indiceAtual];
       fraseElement.classList.add("fadein");
-    }, 5000);
-  }
-
-  if (document.getElementById("typeit")) {
-    new TypeIt("#typeit", {
-      speed: 55,
-      loop: true,
-      breakLines: true,
-      deleteSpeed: 25,
-      waitUntilVisible: true,
-      nextStringDelay: 1700,
-    })
-      .type("Eu te amo em cada universo em que podemos existir juntos.")
-      .pause(1600)
-      .delete()
-      .type("Entre cafés e códigos, é você quem faz meu coração compilar.")
-      .pause(1600)
-      .delete()
-      .type("Se o mundo desalinhar, encontro você em qualquer linha do tempo.")
-      .pause(1600)
-      .delete()
-      .type("Você é minha casa, meu lugar preferido e meu porto seguro.")
-      .pause(1600)
-      .delete()
-      .type("Te escolheria mil vezes, em qualquer realidade.")
-      .pause(1600)
-      .delete()
-      .go();
+    }, 5200);
   }
 
   if (document.getElementById("typed-header")) {
     new TypeIt("#typed-header", {
-      speed: 45,
+      speed: 46,
       loop: true,
       waitUntilVisible: true,
-      cursor: false,
+      cursor: true,
       deleteSpeed: 25,
-      nextStringDelay: 1800,
+      nextStringDelay: 1900,
     })
-      .type("Um amor escrito nas estrelas e nos nossos sorrisos.")
-      .pause(1800)
+      .type("Um amor iluminado por rose gold e noites estreladas.")
+      .pause(1900)
       .delete()
-      .type("Do primeiro olhar ao eterno sim, cada passo valeu a pena.")
-      .pause(1800)
+      .type("Cada detalhe preparado para celebrar o nosso para sempre.")
+      .pause(1900)
       .delete()
-      .type("Contando os dias para o nosso para sempre.")
-      .pause(1800)
+      .type("Voc\u00EA faz parte da nossa hist\u00F3ria e desse grande dia.")
+      .pause(1900)
       .delete()
       .go();
   }
@@ -176,34 +139,6 @@
     toggleTopVisibility();
   }
 
-  let ytPlayer;
-  let musicPlaying = false;
-
-  window.onYouTubeIframeAPIReady = function () {
-    ytPlayer = new YT.Player("youtube-audio", {
-      events: {
-        onReady: (event) => {
-          event.target.setVolume(50);
-        },
-      },
-    });
-  };
-
-  const btnMusic = document.getElementById("btn-music");
-  if (btnMusic) {
-    btnMusic.addEventListener("click", () => {
-      if (!ytPlayer) return;
-      if (musicPlaying) {
-        ytPlayer.pauseVideo();
-        btnMusic.classList.remove("playing");
-      } else {
-        ytPlayer.playVideo();
-        btnMusic.classList.add("playing");
-      }
-      musicPlaying = !musicPlaying;
-    });
-  }
-
   const btnMessage = document.getElementById("btn-love-message");
   if (btnMessage) {
     btnMessage.addEventListener("click", () => {
@@ -214,12 +149,12 @@
 
       setTimeout(() => {
         confetti({
-          particleCount: 180,
-          spread: 90,
+          particleCount: 200,
+          spread: 95,
           origin: { y: 0.65 },
-          colors: ["#ff69b4", "#f7b6d7", "#a6c1ee", "#ffffff"],
+          colors: ["#b76e79", "#d89aa2", "#ffffff", "#f6e7e4"],
         });
-      }, 450);
+      }, 400);
     });
   }
 
@@ -228,7 +163,7 @@
     document.querySelectorAll('.romantic-navbar .nav-link[href^="#"]').forEach((link) => {
       link.addEventListener("click", (event) => {
         const targetId = link.getAttribute("href");
-        if (targetId.length > 1) {
+        if (targetId && targetId.length > 1) {
           const targetEl = document.querySelector(targetId);
           if (targetEl) {
             event.preventDefault();
@@ -244,4 +179,48 @@
       });
     });
   }
+
+  let ytPlayer;
+  let musicPlaying = false;
+
+  window.onYouTubeIframeAPIReady = function () {
+    const iframeElement = document.getElementById("youtube-audio");
+    if (!iframeElement) return;
+
+    ytPlayer = new YT.Player("youtube-audio", {
+      events: {
+        onReady: (event) => {
+          event.target.setVolume(65);
+          event.target.unMute();
+        },
+        onStateChange: (event) => {
+          if (event.data === YT.PlayerState.ENDED) {
+            musicPlaying = false;
+            const musicButton = document.getElementById("btn-music");
+            if (musicButton) musicButton.classList.remove("playing");
+          }
+        },
+      },
+    });
+  };
+
+  const btnMusic = document.getElementById("btn-music");
+  if (btnMusic) {
+    btnMusic.addEventListener("click", () => {
+      if (!ytPlayer) return;
+      if (musicPlaying) {
+        ytPlayer.pauseVideo();
+        btnMusic.classList.remove("playing");
+      } else {
+        ytPlayer.playVideo();
+        ytPlayer.unMute();
+        btnMusic.classList.add("playing");
+      }
+      musicPlaying = !musicPlaying;
+    });
+  }
 });
+
+
+
+
